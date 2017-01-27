@@ -1,0 +1,229 @@
+
+==================== FINAL INTERFACE ====================
+2017-01-27 06:45:14.4878989 UTC
+
+interface main@main:Main 8001
+  interface hash: 1a912659fca8a1cd4f6b8f79ea17b6f2
+  ABI hash: d0e4251e6c124be0b3856a23df7cd22b
+  export-list hash: 7cbad3d514d8aaac56b4f301b37e5ef5
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: d9dbc853a77b4b48778356484dba40cd
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  Main.exHld
+  Main.main
+module dependencies:
+package dependencies: base-4.9.0.0* ghc-prim-0.5.0.0
+                      integer-gmp-1.0.0.1
+                      pro4-0.1.0.0@pro4-0.1.0.0-Br0LB7MXhy4GcpS3yj21Bg
+orphans: base-4.9.0.0:GHC.Base base-4.9.0.0:GHC.Float
+family instance modules: base-4.9.0.0:Control.Applicative
+                         base-4.9.0.0:Data.Either base-4.9.0.0:Data.Functor.Const
+                         base-4.9.0.0:Data.Monoid base-4.9.0.0:Data.Type.Equality
+                         base-4.9.0.0:GHC.Generics base-4.9.0.0:GHC.IO.Exception
+                         base-4.9.0.0:GHC.TypeLits
+import  -/  base-4.9.0.0:Control.Exception 8217a8269170a7a872c6de95a3662e12
+import  -/  base-4.9.0.0:Control.Exception.Base 0f704105a0b2c9a9a0b50fdf0b35065d
+import  -/  base-4.9.0.0:Data.Either 4cef602ce360a0155ac0dd580a5b4863
+import  -/  base-4.9.0.0:GHC.IO.Exception 87b5d724a3c63503d71462ac6ddea52b
+import  -/  base-4.9.0.0:Prelude 2d9cd8b0ec3d728f62b734df888d2e34
+import  -/  base-4.9.0.0:System.Environment b460b4a8ded59bf876fca87a5a3550f2
+import  -/  base-4.9.0.0:System.IO c1068c4f4231e3198e330f99a58145b0
+import  -/  base-4.9.0.0:System.IO.Error 4b09d7f31c4784e7e862b473341a177c
+import  -/  ghc-prim-0.5.0.0:GHC.Types 7378e41b7749213c8c88ceb6b0665d4c
+import  -/  pro4-0.1.0.0@pro4-0.1.0.0-Br0LB7MXhy4GcpS3yj21Bg:Lib 98a89dc76014faca233836c7178729f3
+import  -/  pro4-0.1.0.0@pro4-0.1.0.0-Br0LB7MXhy4GcpS3yj21Bg:ParserMonads 6a3fe78dbbe7b53dae2ddff62a54629d
+d6831ef04cb9301b090dfae6f7bb7ec7
+  $trModule :: GHC.Types.Module
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Module Main.$trModule2 Main.$trModule1) -}
+847d9fc3b8e6f0b424199f36b4999bb2
+  $trModule1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "Main"#) -}
+24ef6042833e75ffd7aa98b83ecca98d
+  $trModule2 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "main"#) -}
+84f3c1d9a8ff3a31c0c8b52b2b3fa2a2
+  $wexHld ::
+    GHC.Base.Maybe GHC.IO.Handle.Types.Handle
+    -> GHC.IO.Exception.IOErrorType
+    -> GHC.Base.String
+    -> GHC.Base.String
+    -> GHC.Base.Maybe Foreign.C.Types.CInt
+    -> GHC.Base.Maybe GHC.IO.FilePath
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 7, Strictness: <L,U><S,U><L,U><L,U><L,U><L,U><S,U>,
+     Inline: [0],
+     Unfolding: (\ (ww :: GHC.Base.Maybe GHC.IO.Handle.Types.Handle)
+                   (ww1 :: GHC.IO.Exception.IOErrorType)
+                   (ww2 :: GHC.Base.String)
+                   (ww3 :: GHC.Base.String)
+                   (ww4 :: GHC.Base.Maybe Foreign.C.Types.CInt)
+                   (ww5 :: GHC.Base.Maybe GHC.IO.FilePath)
+                   (w :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 case ww1 of wild1 {
+                   DEFAULT
+                   -> GHC.Prim.raiseIO#
+                        @ GHC.Exception.SomeException
+                        @ ()
+                        (GHC.IO.Exception.$fExceptionIOException_$ctoException
+                           (GHC.IO.Exception.IOError ww wild1 ww2 ww3 ww4 ww5))
+                        w
+                   GHC.IO.Exception.NoSuchThing
+                   -> GHC.IO.Handle.Text.hPutStr2
+                        GHC.IO.Handle.FD.stdout
+                        Main.exHld2
+                        GHC.Types.True
+                        w }) -}
+7ed2ec21b7f360fc8f2796651bb9c9eb
+  exHld :: GHC.IO.Exception.IOError -> GHC.Types.IO ()
+  {- Arity: 2, Strictness: <S(LSLLLL),1*U(U,U,U,U,U,U)><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                Main.exHld1
+                  `cast`
+                (<GHC.IO.Exception.IOError>_R
+                 ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
+1a7a3c527ea95754a702dc5e87979ec5
+  exHld1 ::
+    GHC.IO.Exception.IOError
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 2, Strictness: <S(LSLLLL),1*U(U,U,U,U,U,U)><S,U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: GHC.IO.Exception.IOError)
+                   (w1 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 case w of ww { GHC.IO.Exception.IOError ww1 ww2 ww3 ww4 ww5 ww6 ->
+                 Main.$wexHld ww1 ww2 ww3 ww4 ww5 ww6 w1 }) -}
+df352eaf5c9d9a295be5823bd7e2f9c1
+  exHld2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "Plik nie istnieje"#) -}
+2eb1166be31ee4ccd0b2f6355943ba89
+  main :: GHC.Types.IO ()
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: InlineRule (0, True, True)
+                Main.main1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
+2c41872e687679028162646ebb335831
+  main1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: (\ (s :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 case GHC.Prim.catch#
+                        @ (Data.Either.Either GHC.IO.Exception.IOError ())
+                        @ GHC.Exception.SomeException
+                        Main.main4
+                          `cast`
+                        (GHC.Types.N:IO[0]
+                             <Data.Either.Either GHC.IO.Exception.IOError ()>_R)
+                        Main.main3
+                        s of ds1 { (#,#) ipv ipv1 ->
+                 case ipv1 of wild {
+                   Data.Either.Left ex
+                   -> case ex of wild1 { GHC.IO.Exception.IOError ds2 ds3 ds4 ds5 ds6 ds7 ->
+                      case ds3 of wild2 {
+                        DEFAULT
+                        -> GHC.Prim.raiseIO#
+                             @ GHC.Exception.SomeException
+                             @ ()
+                             (GHC.IO.Exception.$fExceptionIOException_$ctoException wild1)
+                             ipv
+                        GHC.IO.Exception.NoSuchThing
+                        -> GHC.IO.Handle.Text.hPutStr2
+                             GHC.IO.Handle.FD.stdout
+                             Main.exHld2
+                             GHC.Types.True
+                             ipv } }
+                   Data.Either.Right ds
+                   -> GHC.IO.Handle.Text.hPutStr2
+                        GHC.IO.Handle.FD.stdout
+                        Main.main2
+                        GHC.Types.True
+                        ipv } }) -}
+a63415a6e9f1a412f782e498479a9230
+  main2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "Operacja udana"#) -}
+9aa94c5b24180f9836a00ba951d4cb3a
+  main3 ::
+    GHC.Exception.SomeException
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Data.Either.Either GHC.IO.Exception.IOError () #)
+  {- Arity: 2,
+     Unfolding: (\ (e1 :: GHC.Exception.SomeException)[OneShot]
+                   (eta1 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 case e1 of wild { GHC.Exception.SomeException e100 $dException1 e2 ->
+                 case (GHC.Exception.$p1Exception @ e100 $dException1)
+                        `cast`
+                      (Data.Typeable.Internal.N:Typeable[0] <*>_N <e100>_N)
+                        (GHC.Prim.proxy#
+                           @ *
+                           @ e100) of wild1 { Data.Typeable.Internal.TypeRep dt dt1 ds2 ds3 ds4 ->
+                 case GHC.IO.Exception.$fExceptionIOException3 of wild2 { Data.Typeable.Internal.TypeRep dt2 dt3 ds5 ds6 ds7 ->
+                 case GHC.Prim.tagToEnum#
+                        @ GHC.Types.Bool
+                        (GHC.Prim.eqWord# dt dt2) of wild3 {
+                   GHC.Types.False
+                   -> GHC.Prim.raiseIO#
+                        @ GHC.Exception.SomeException
+                        @ (Data.Either.Either GHC.IO.Exception.IOError ())
+                        wild
+                        eta1
+                   GHC.Types.True
+                   -> case GHC.Prim.tagToEnum#
+                             @ GHC.Types.Bool
+                             (GHC.Prim.eqWord# dt1 dt3) of wild4 {
+                        GHC.Types.False
+                        -> GHC.Prim.raiseIO#
+                             @ GHC.Exception.SomeException
+                             @ (Data.Either.Either GHC.IO.Exception.IOError ())
+                             wild
+                             eta1
+                        GHC.Types.True
+                        -> (# eta1,
+                              Data.Either.Left
+                                @ GHC.IO.Exception.IOError
+                                @ ()
+                                e2
+                                  `cast`
+                                (UnsafeCo representational e100 GHC.IO.Exception.IOException) #) } } } } }) -}
+383c9410b8fe4693cc87db6ef775eac3
+  main4 ::
+    GHC.Types.IO (Data.Either.Either GHC.IO.Exception.IOError ())
+  {- Unfolding: (GHC.Magic.lazy
+                   @ (GHC.Types.IO (Data.Either.Either GHC.IO.Exception.IOError ()))
+                   Main.main5
+                     `cast`
+                   (Sym (GHC.Types.N:IO[0]
+                             <Data.Either.Either GHC.IO.Exception.IOError ()>_R))) -}
+13af66c4578e04816b9237c3bc7059fb
+  main5 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Data.Either.Either GHC.IO.Exception.IOError () #)
+  {- Arity: 1,
+     Unfolding: (\ (s :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 case Lib.statistics1 s of ds1 { (#,#) ipv ipv1 ->
+                 (# ipv,
+                    Data.Either.Right @ GHC.IO.Exception.IOError @ () ipv1 #) }) -}
+2b20c303e56a9ee44108e5bc7f0cd733
+  main6 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1,
+     Unfolding: (GHC.TopHandler.runMainIO1
+                   @ ()
+                   Main.main1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R))) -}
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: safe
+require own pkg trusted: False
+

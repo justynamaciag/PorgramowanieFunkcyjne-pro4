@@ -1,0 +1,56 @@
+Functors
+
+A functor, F, is a map from one category to another: it maps objects into objects and morphisms into morphisms. 
+But it can’t do it in a haphazard way because that would destroy the very structures that we are after. 
+So we must impose some “obvious” (mathematicians love that word) constraints.
+
+First of all, if you have a morphism between two objects in the first category then it better be mapped into a 
+morphism between the corresponding objects in the second category. Fig 2 explains this diagrammatically. 
+Object A is mapped into F(A), object B into F(B). A morphism f from A to B is mapped into a morphism F(f) from F(A) to F(B). 
+Mathematicians say that such a diagram must commute, that is the result must be the same whether you go from A to F(A) 
+and then apply F(f), or first apply f and then go from B to F(B).
+
+Functor diagram
+Fig 2. Diagram showing the action of a functor F on objects A and B and a morphism f. The bottom part lives in F's 
+domain (source) category, the top part in its codomain (the target).
+Moreover, such mapping should preserve the composition property of morphisms. So if morphism h is a composition of 
+f and g, then F(h) must be a composition of F(f) and F(g). And, of course, the functor must map identity morphisms into identity morphisms.
+
+To get a feel for how constrained functors are by these conditions, consider how you could map the category in Fig 1 
+into itself (such a functor just rearranges things inside one category). There are two trivial mappings that collapse 
+both objects into one (either A or B), and turn all morphisms into identity. Then there is the identity functor that 
+maps both objects into themselves and all morphisms into themselves. Finally, there is just one “interesting” functor 
+that maps A into B and B into A with f and g switching roles. Now imagine a similar category but with the g arrow removed
+ (yes, it’s still a category). Suddenly there is no functor other than the collapsing ones between Fig 1 and that new category.
+ That’s because the two categories have completely different structure.
+
+Let me now jump into more familiar territory. Since we are mostly interested in one category, Hask, let me define a functor 
+that maps that category into itself (such functors are called endofunctors). An object in Hask is a type, so our functor must 
+map types into types. The way to look at it is that a functor in Hask constructs one type from another– it’s a type constructor. 
+Don’t get confused by the name: a type constructor creates a new type in your program, but that type has already existed in Hask.
+
+A classical example is the list type constructor. Given any type it constructs a list of that type. Type Integer is mapped 
+into list of integers or, in Haskell notation, [Integer]. Notice that this is not a map defined on integer values, like 1, 2, or 3. 
+It also doesn’t add a new type to Hask— the type [Integer] is already there. It just maps one type into another. For C++ programmers: 
+think of mapping type T into a container of T; for instance, std::vector<T>.
+
+Mapping the types is the easy part, what about functions? We have to find a way to take a particular function and map it into 
+a function on lists. That’s also easy: apply the function to each element of the list in turn. There is a (higher level) function 
+in Haskel that does it. It’s called map and it takes a function and a list and returns a new list (or, because of currying, you may
+ say that it takes a function and returns a function acting on lists). In C++ there is a corresponding template function called std::transform 
+ (well, it takes two iterators and a function object, but the idea is the same).
+
+Mathematicians often use diagrams to illustrate the properties of morphisms and functors (see Fig 2). The arrows for morphisms
+ are usually horizontal, while the arrows for functors are vertical (going up). That’s why the mapping of morphisms under a functor
+ is often called lifting. You can take a function operating on integers and “lift it” (using a functor) to a function operating on lists of integers, and so on.
+
+The list functor obviously preserves function composition and identity (I’ll leave it as an easy but instructive exercise for the reader).
+
+And now for another moment of Zen. What’s the second most important property of programming? Reusability! Look what we have just 
+done: We took all the functions we’ve implemented so far and lifted them to the level of lists. We’ve got functions operating on lists
+ essentially for free (well, we’ve got a small but important subset of those functions). And the same trick may be applied to all kinds
+ of containers, arrays, trees, queues, unique_ptrs and more.
+
+It’s all beautiful, but you don’t really need category theory to apply functions to lists. Still it’s always good to see patterns in 
+programming, and this one is definitely a keeper. The real revolution starts with monads. And, guess what, the list functor is actually a monad.
+ You just need a few more ingredients.

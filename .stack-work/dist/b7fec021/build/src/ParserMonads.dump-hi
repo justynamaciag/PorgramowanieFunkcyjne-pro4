@@ -1,0 +1,640 @@
+
+==================== FINAL INTERFACE ====================
+2017-01-27 06:45:12.8928077 UTC
+
+interface pro4-0.1.0.0-Br0LB7MXhy4GcpS3yj21Bg:ParserMonads 8001
+  interface hash: 0fbba9ae2971be1c47318cfb8da85d49
+  ABI hash: 6a3fe78dbbe7b53dae2ddff62a54629d
+  export-list hash: d5830e6d1b796edd654a5eaf5260c083
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: 365edb496d38399416a64131c77130e2
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  ParserMonads.char
+  ParserMonads.isVowel
+  ParserMonads.item
+  ParserMonads.lower
+  ParserMonads.parseeee
+  ParserMonads.result
+  ParserMonads.upper
+  ParserMonads.useFunction
+  ParserMonads.zero
+module dependencies:
+package dependencies: base-4.9.0.0* ghc-prim-0.5.0.0
+                      integer-gmp-1.0.0.1
+orphans: base-4.9.0.0:GHC.Base base-4.9.0.0:GHC.Float
+family instance modules: base-4.9.0.0:Control.Applicative
+                         base-4.9.0.0:Data.Either base-4.9.0.0:Data.Functor.Const
+                         base-4.9.0.0:Data.Monoid base-4.9.0.0:Data.Type.Equality
+                         base-4.9.0.0:GHC.Generics base-4.9.0.0:GHC.IO.Exception
+                         base-4.9.0.0:GHC.TypeLits
+import  -/  base-4.9.0.0:Control.Monad b6b2f076948b5e8acd6d95beb4d22bfc
+import  -/  base-4.9.0.0:Data.Foldable 3cbed01c922be29649c33015287c82ca
+import  -/  base-4.9.0.0:GHC.Base dd8044a8d640eee51828c17c476a6ba7
+import  -/  base-4.9.0.0:Prelude 2d9cd8b0ec3d728f62b734df888d2e34
+import  -/  base-4.9.0.0:System.Environment b460b4a8ded59bf876fca87a5a3550f2
+import  -/  base-4.9.0.0:System.IO c1068c4f4231e3198e330f99a58145b0
+import  -/  ghc-prim-0.5.0.0:GHC.Classes 16d48e012d23eaef9bca91ccdd572c02
+import  -/  ghc-prim-0.5.0.0:GHC.Types 7378e41b7749213c8c88ceb6b0665d4c
+d1f100a4a9576eb9e75085cf5c7a946a
+  $fApplicativeParser :: GHC.Base.Applicative ParserMonads.Parser
+  DFunId
+  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ ParserMonads.Parser
+                  ParserMonads.$fFunctorParser
+                  ParserMonads.result
+                  ParserMonads.$fApplicativeParser_$c<*>
+                  ParserMonads.$fApplicativeParser_$c*>
+                  ParserMonads.$fApplicativeParser_$c<* -}
+d1f100a4a9576eb9e75085cf5c7a946a
+  $fApplicativeParser1 ::
+    ParserMonads.Parser a
+    -> ParserMonads.Parser b
+    -> GHC.Base.String
+    -> [(a, GHC.Base.String)]
+  {- Arity: 3, HasNoCafRefs, Strictness: <C(S),1*C1(U)><L,C(U)><L,U>,
+     Unfolding: (\ @ a
+                   @ b
+                   (eta :: ParserMonads.Parser a)
+                   (eta1 :: ParserMonads.Parser b)
+                   (eta2 :: GHC.Base.String) ->
+                 ParserMonads.$fApplicativeParser3
+                   @ b
+                   @ a
+                   (\ (eta3 :: GHC.Base.String)[OneShot] ->
+                    GHC.Base.map
+                      @ (a, GHC.Base.String)
+                      @ (b -> a, GHC.Base.String)
+                      (ParserMonads.$fApplicativeParser2 @ b @ a)
+                      (eta `cast` (ParserMonads.N:Parser[0] <a>_R) eta3))
+                     `cast`
+                   (Sym (ParserMonads.N:Parser[0] <b -> a>_R))
+                   eta1
+                   eta2) -}
+6b3b4b3b0c5099547d69e828bf645e28
+  $fApplicativeParser2 ::
+    (a, GHC.Base.String) -> (b -> a, GHC.Base.String)
+  {- Arity: 1, HasNoCafRefs,
+     Unfolding: (\ @ b @ a (ds :: (a, GHC.Base.String)) ->
+                 case ds of wild { (,) x str -> (\ (ds1 :: b) -> x, str) }) -}
+d1f100a4a9576eb9e75085cf5c7a946a
+  $fApplicativeParser3 ::
+    ParserMonads.Parser (a -> b)
+    -> ParserMonads.Parser a
+    -> GHC.Base.String
+    -> [(b, GHC.Base.String)]
+  {- Arity: 3, HasNoCafRefs, Strictness: <C(S),1*C1(U)><L,C(U)><L,U>,
+     Unfolding: (\ @ a
+                   @ b
+                   (m1 :: ParserMonads.Parser (a -> b))
+                   (m2 :: ParserMonads.Parser a)
+                   (eta :: GHC.Base.String) ->
+                 letrec {
+                   go :: [(a -> b, GHC.Base.String)] -> [(b, GHC.Base.String)]
+                     {- Arity: 1, Strictness: <S,1*U> -}
+                   = \ (ds :: [(a -> b, GHC.Base.String)]) ->
+                     case ds of wild {
+                       [] -> GHC.Types.[] @ (b, GHC.Base.String)
+                       : y ys
+                       -> case y of wild1 { (,) v out ->
+                          let {
+                            z :: [(b, GHC.Base.String)] = go ys
+                          } in
+                          letrec {
+                            go1 :: [(a, GHC.Base.String)] -> [(b, GHC.Base.String)]
+                              {- Arity: 1, Strictness: <S,1*U> -}
+                            = \ (ds1 :: [(a, GHC.Base.String)]) ->
+                              case ds1 of wild2 {
+                                [] -> z
+                                : y1 ys1
+                                -> case y1 of wild3 { (,) v1 out1 ->
+                                   GHC.Types.: @ (b, GHC.Base.String) (v v1, out1) (go1 ys1) } }
+                          } in
+                          go1 (m2 `cast` (ParserMonads.N:Parser[0] <a>_R) out) } }
+                 } in
+                 go (m1 `cast` (ParserMonads.N:Parser[0] <a -> b>_R) eta)) -}
+d1f100a4a9576eb9e75085cf5c7a946a
+  $fApplicativeParser4 ::
+    ParserMonads.Parser a
+    -> ParserMonads.Parser b
+    -> GHC.Base.String
+    -> [(b, GHC.Base.String)]
+  {- Arity: 3, HasNoCafRefs, Strictness: <C(S),1*C1(U)><L,C(U)><L,U>,
+     Unfolding: (\ @ a
+                   @ b
+                   (eta :: ParserMonads.Parser a)
+                   (eta1 :: ParserMonads.Parser b)
+                   (eta2 :: GHC.Base.String) ->
+                 ParserMonads.$fApplicativeParser3
+                   @ b
+                   @ b
+                   (\ (eta3 :: GHC.Base.String)[OneShot] ->
+                    GHC.Base.map
+                      @ (a, GHC.Base.String)
+                      @ (b -> b, GHC.Base.String)
+                      (ParserMonads.$fApplicativeParser5 @ b @ a)
+                      (eta `cast` (ParserMonads.N:Parser[0] <a>_R) eta3))
+                     `cast`
+                   (Sym (ParserMonads.N:Parser[0] <b -> b>_R))
+                   eta1
+                   eta2) -}
+1032fd2869ca3c6c7b38b4f921a7419f
+  $fApplicativeParser5 ::
+    (a, GHC.Base.String) -> (b -> b, GHC.Base.String)
+  {- Arity: 1, HasNoCafRefs,
+     Unfolding: (\ @ b @ a (ds :: (a, GHC.Base.String)) ->
+                 case ds of wild { (,) x str -> (GHC.Base.breakpoint @ b, str) }) -}
+d1f100a4a9576eb9e75085cf5c7a946a
+  $fApplicativeParser_$c*> ::
+    ParserMonads.Parser a
+    -> ParserMonads.Parser b -> ParserMonads.Parser b
+  {- Arity: 3, HasNoCafRefs, Strictness: <C(S),1*C1(U)><L,C(U)><L,U>,
+     Unfolding: InlineRule (0, True, True)
+                ParserMonads.$fApplicativeParser4
+                  `cast`
+                (forall (a :: <*>_N) (b :: <*>_N).
+                 <ParserMonads.Parser a>_R
+                 ->_R <ParserMonads.Parser b>_R
+                 ->_R Sym (ParserMonads.N:Parser[0] <b>_R)) -}
+d1f100a4a9576eb9e75085cf5c7a946a
+  $fApplicativeParser_$c<* ::
+    ParserMonads.Parser a
+    -> ParserMonads.Parser b -> ParserMonads.Parser a
+  {- Arity: 3, HasNoCafRefs, Strictness: <C(S),1*C1(U)><L,C(U)><L,U>,
+     Unfolding: InlineRule (0, True, True)
+                ParserMonads.$fApplicativeParser1
+                  `cast`
+                (forall (a :: <*>_N) (b :: <*>_N).
+                 <ParserMonads.Parser a>_R
+                 ->_R <ParserMonads.Parser b>_R
+                 ->_R Sym (ParserMonads.N:Parser[0] <a>_R)) -}
+d1f100a4a9576eb9e75085cf5c7a946a
+  $fApplicativeParser_$c<*> ::
+    ParserMonads.Parser (a -> b)
+    -> ParserMonads.Parser a -> ParserMonads.Parser b
+  {- Arity: 3, HasNoCafRefs, Strictness: <C(S),1*C1(U)><L,C(U)><L,U>,
+     Unfolding: InlineRule (0, True, True)
+                ParserMonads.$fApplicativeParser3
+                  `cast`
+                (forall (a :: <*>_N) (b :: <*>_N).
+                 <ParserMonads.Parser (a -> b)>_R
+                 ->_R <ParserMonads.Parser a>_R
+                 ->_R Sym (ParserMonads.N:Parser[0] <b>_R)) -}
+d1f100a4a9576eb9e75085cf5c7a946a
+  $fFunctorParser :: GHC.Base.Functor ParserMonads.Parser
+  DFunId
+  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ ParserMonads.Parser
+                  ParserMonads.$fFunctorParser_$cfmap
+                  ParserMonads.$fFunctorParser_$c<$ -}
+d1f100a4a9576eb9e75085cf5c7a946a
+  $fFunctorParser1 ::
+    a
+    -> ParserMonads.Parser b
+    -> GHC.Base.String
+    -> [(a, GHC.Base.String)]
+  {- Arity: 3, HasNoCafRefs, Strictness: <L,U><C(S),1*C1(U)><L,U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ a
+                   @ b
+                   (eta :: a)
+                   (eta1 :: ParserMonads.Parser b)
+                   (eta2 :: GHC.Base.String) ->
+                 GHC.Base.build
+                   @ (a, GHC.Base.String)
+                   (\ @ b1
+                      (c :: (a, GHC.Base.String) -> b1 -> b1)[OneShot]
+                      (n :: b1)[OneShot] ->
+                    GHC.Base.foldr
+                      @ (b, GHC.Base.String)
+                      @ b1
+                      (GHC.Base.mapFB
+                         @ (a, GHC.Base.String)
+                         @ b1
+                         @ (b, GHC.Base.String)
+                         c
+                         (\ (ds :: (b, GHC.Base.String)) ->
+                          case ds of wild { (,) x str -> (eta, str) }))
+                      n
+                      (eta1 `cast` (ParserMonads.N:Parser[0] <b>_R) eta2))) -}
+d1f100a4a9576eb9e75085cf5c7a946a
+  $fFunctorParser2 ::
+    (a -> b)
+    -> ParserMonads.Parser a
+    -> GHC.Base.String
+    -> [(b, GHC.Base.String)]
+  {- Arity: 3, HasNoCafRefs, Strictness: <L,C(U)><C(S),1*C1(U)><L,U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ a
+                   @ b
+                   (f :: a -> b)
+                   (ds :: ParserMonads.Parser a)
+                   (eta :: GHC.Base.String) ->
+                 GHC.Base.build
+                   @ (b, GHC.Base.String)
+                   (\ @ b1
+                      (c :: (b, GHC.Base.String) -> b1 -> b1)[OneShot]
+                      (n :: b1)[OneShot] ->
+                    GHC.Base.foldr
+                      @ (a, GHC.Base.String)
+                      @ b1
+                      (GHC.Base.mapFB
+                         @ (b, GHC.Base.String)
+                         @ b1
+                         @ (a, GHC.Base.String)
+                         c
+                         (\ (ds1 :: (a, GHC.Base.String)) ->
+                          case ds1 of wild { (,) x str -> (f x, str) }))
+                      n
+                      (ds `cast` (ParserMonads.N:Parser[0] <a>_R) eta))) -}
+d1f100a4a9576eb9e75085cf5c7a946a
+  $fFunctorParser_$c<$ ::
+    a -> ParserMonads.Parser b -> ParserMonads.Parser a
+  {- Arity: 3, HasNoCafRefs, Strictness: <L,U><C(S),1*C1(U)><L,U>,
+     Unfolding: InlineRule (0, True, True)
+                ParserMonads.$fFunctorParser1
+                  `cast`
+                (forall (a :: <*>_N) (b :: <*>_N).
+                 <a>_R
+                 ->_R <ParserMonads.Parser b>_R
+                 ->_R Sym (ParserMonads.N:Parser[0] <a>_R)) -}
+d1f100a4a9576eb9e75085cf5c7a946a
+  $fFunctorParser_$cfmap ::
+    (a -> b) -> ParserMonads.Parser a -> ParserMonads.Parser b
+  {- Arity: 3, HasNoCafRefs, Strictness: <L,C(U)><C(S),1*C1(U)><L,U>,
+     Unfolding: InlineRule (0, True, True)
+                ParserMonads.$fFunctorParser2
+                  `cast`
+                (forall (a :: <*>_N) (b :: <*>_N).
+                 <a -> b>_R
+                 ->_R <ParserMonads.Parser a>_R
+                 ->_R Sym (ParserMonads.N:Parser[0] <b>_R)) -}
+d1f100a4a9576eb9e75085cf5c7a946a
+  $fMonadParser :: GHC.Base.Monad ParserMonads.Parser
+  DFunId
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ ParserMonads.Parser
+                  ParserMonads.$fMonadParser_$cp1Monad
+                  ParserMonads.$fMonadParser_$c>>=
+                  ParserMonads.$fMonadParser_$c>>
+                  ParserMonads.result
+                  ParserMonads.$fMonadParser_$s$dmfail -}
+d1f100a4a9576eb9e75085cf5c7a946a
+  $fMonadParser1 ::
+    ParserMonads.Parser a
+    -> (a -> ParserMonads.Parser b)
+    -> GHC.Base.String
+    -> [(b, GHC.Base.String)]
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <C(S),1*C1(U)><L,C(C1(U))><L,U>,
+     Unfolding: (\ @ a
+                   @ b
+                   (ds :: ParserMonads.Parser a)
+                   (f :: a -> ParserMonads.Parser b)
+                   (inp :: GHC.Base.String) ->
+                 letrec {
+                   go :: [(a, GHC.Base.String)] -> [(b, GHC.Base.String)]
+                     {- Arity: 1, Strictness: <S,1*U> -}
+                   = \ (ds1 :: [(a, GHC.Base.String)]) ->
+                     case ds1 of wild {
+                       [] -> GHC.Types.[] @ (b, GHC.Base.String)
+                       : y ys
+                       -> case y of wild1 { (,) v out ->
+                          GHC.Base.++
+                            @ (b, GHC.Base.String)
+                            ((f v) `cast` (ParserMonads.N:Parser[0] <b>_R) out)
+                            (go ys) } }
+                 } in
+                 go (ds `cast` (ParserMonads.N:Parser[0] <a>_R) inp)) -}
+d1f100a4a9576eb9e75085cf5c7a946a
+  $fMonadParser_$c>> ::
+    ParserMonads.Parser a
+    -> ParserMonads.Parser b -> ParserMonads.Parser b
+  {- Arity: 2, Strictness: <L,U><L,U>, Inline: INLINE (sat-args=2),
+     Unfolding: InlineRule (2, False, False)
+                (\ @ a
+                   @ b
+                   (m1 :: ParserMonads.Parser a)
+                   (k :: ParserMonads.Parser b)
+                   (eta :: GHC.Base.String) ->
+                 (ParserMonads.$fMonadParser_$c>>= @ a @ b m1 (\ (ds :: a) -> k))
+                   `cast`
+                 (ParserMonads.N:Parser[0] <b>_R)
+                   eta)
+                  `cast`
+                (forall (a :: <*>_N) (b :: <*>_N).
+                 <ParserMonads.Parser a>_R
+                 ->_R <ParserMonads.Parser b>_R
+                 ->_R Sym (ParserMonads.N:Parser[0] <b>_R)) -}
+d1f100a4a9576eb9e75085cf5c7a946a
+  $fMonadParser_$c>>= ::
+    ParserMonads.Parser a
+    -> (a -> ParserMonads.Parser b) -> ParserMonads.Parser b
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <C(S),1*C1(U)><L,C(C1(U))><L,U>,
+     Unfolding: InlineRule (0, True, True)
+                ParserMonads.$fMonadParser1
+                  `cast`
+                (forall (a :: <*>_N) (b :: <*>_N).
+                 <ParserMonads.Parser a>_R
+                 ->_R <a -> ParserMonads.Parser b>_R
+                 ->_R Sym (ParserMonads.N:Parser[0] <b>_R)) -}
+d1f100a4a9576eb9e75085cf5c7a946a
+  $fMonadParser_$cp1Monad :: GHC.Base.Applicative ParserMonads.Parser
+  {- Strictness: m,
+     Unfolding: InlineRule (0, True, True)
+                ParserMonads.$fApplicativeParser -}
+d1f100a4a9576eb9e75085cf5c7a946a
+  $fMonadParser_$s$dmfail :: GHC.Base.String -> ParserMonads.Parser a
+  {- Arity: 1, Strictness: <B,U>x,
+     Unfolding: InlineRule (-1, True, True)
+                (\ @ a (s :: GHC.Base.String) ->
+                 GHC.Err.errorWithoutStackTrace
+                   @ 'GHC.Types.PtrRepLifted
+                   @ (ParserMonads.Parser a)
+                   s) -}
+7641a7baf0da8567f89f95308055b48d
+  $tc'Parser :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   3394418730943524002##
+                   3721009601417627566##
+                   ParserMonads.$trModule
+                   ParserMonads.$tc'Parser1) -}
+e9969498945924b3bacaeebeff6b3f1e
+  $tc'Parser1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'Parser"#) -}
+315bcaf50390e658de6d1fbe6a486611
+  $tcParser :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   12877371184784809945##
+                   7373001315242523110##
+                   ParserMonads.$trModule
+                   ParserMonads.$tcParser1) -}
+2b5490e384f2f1d0e35b78d71c613d82
+  $tcParser1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "Parser"#) -}
+d8ff1a67ecbcc828588ae448cb36c92c
+  $trModule :: GHC.Types.Module
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Module
+                   ParserMonads.$trModule2
+                   ParserMonads.$trModule1) -}
+ba9b1750b5393d9209ebcb030d0a3e44
+  $trModule1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "ParserMonads"#) -}
+6ed3ebc82d5d96644bf87891b93bc5c4
+  $trModule2 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS
+                   "pro4-0.1.0.0-Br0LB7MXhy4GcpS3yj21Bg"#) -}
+d1f100a4a9576eb9e75085cf5c7a946a
+  newtype Parser a = Parser {parse :: ParserMonads.ParserFun a}
+e4613878006c7482441fe78194820ba0
+  type ParserFun a = GHC.Base.String -> [(a, GHC.Base.String)]
+552ed1910c009bfbac14c5aa34965f40
+  char :: GHC.Types.Char -> ParserMonads.Parser GHC.Types.Char
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,1*U(U)><S,1*U>,
+     Unfolding: InlineRule (0, True, True)
+                ParserMonads.char1
+                  `cast`
+                (<GHC.Types.Char>_R
+                 ->_R Sym (ParserMonads.N:Parser[0] <GHC.Types.Char>_R)) -}
+253040ae9d31534a647cfe421b0b376e
+  char1 ::
+    GHC.Types.Char
+    -> GHC.Base.String -> [(GHC.Types.Char, GHC.Base.String)]
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,1*U(U)><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ (x :: GHC.Types.Char) (eta :: GHC.Base.String) ->
+                 case eta of wild {
+                   [] -> GHC.Types.[] @ (GHC.Types.Char, GHC.Base.String)
+                   : x1 xs
+                   -> case x of wild1 { GHC.Types.C# x2 ->
+                      case x1 of wild2 { GHC.Types.C# y ->
+                      case GHC.Prim.tagToEnum#
+                             @ GHC.Types.Bool
+                             (GHC.Prim.eqChar# x2 y) of wild3 {
+                        GHC.Types.False -> GHC.Types.[] @ (GHC.Types.Char, GHC.Base.String)
+                        GHC.Types.True
+                        -> GHC.Types.:
+                             @ (GHC.Types.Char, GHC.Base.String)
+                             (wild2, xs)
+                             (GHC.Types.[] @ (GHC.Types.Char, GHC.Base.String)) } } } }) -}
+1575f443e89543f7d1b4bc82c8d16068
+  isVowel :: ParserMonads.Parser GHC.Types.Char
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: InlineRule (0, True, True)
+                ParserMonads.isVowel1
+                  `cast`
+                (Sym (ParserMonads.N:Parser[0] <GHC.Types.Char>_R)) -}
+593722a29da00090401215d50dd41706
+  isVowel1 :: GHC.Base.String -> [(GHC.Types.Char, GHC.Base.String)]
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: (\ (eta :: GHC.Base.String) ->
+                 case eta of wild {
+                   [] -> GHC.Types.[] @ (GHC.Types.Char, GHC.Base.String)
+                   : x xs
+                   -> case GHC.List.elem
+                             @ GHC.Types.Char
+                             GHC.Classes.$fEqChar
+                             x
+                             ParserMonads.isVowel2 of wild1 {
+                        GHC.Types.False -> GHC.Types.[] @ (GHC.Types.Char, GHC.Base.String)
+                        GHC.Types.True
+                        -> GHC.Types.:
+                             @ (GHC.Types.Char, GHC.Base.String)
+                             (x, xs)
+                             (GHC.Types.[] @ (GHC.Types.Char, GHC.Base.String)) } }) -}
+43bbcac67bf8bd82d6d16e3f4af41b50
+  isVowel2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "aeiouAEIOU"#) -}
+96854de95442ed7acfc0f6730acb8cc2
+  item :: ParserMonads.Parser GHC.Types.Char
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (0, True, True)
+                ParserMonads.item1
+                  `cast`
+                (Sym (ParserMonads.N:Parser[0] <GHC.Types.Char>_R)) -}
+d5f94a45e329378064a2ffd8c9bc9cd4
+  item1 :: GHC.Base.String -> [(GHC.Types.Char, GHC.Base.String)]
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (inp :: GHC.Base.String) ->
+                 case inp of wild {
+                   [] -> GHC.Types.[] @ (GHC.Types.Char, GHC.Base.String)
+                   : x xs
+                   -> GHC.Types.:
+                        @ (GHC.Types.Char, GHC.Base.String)
+                        (x, xs)
+                        (GHC.Types.[] @ (GHC.Types.Char, GHC.Base.String)) }) -}
+2ef837947be661e9ff7e76faf11dbfd2
+  lower :: ParserMonads.Parser GHC.Types.Char
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (0, True, True)
+                ParserMonads.lower1
+                  `cast`
+                (Sym (ParserMonads.N:Parser[0] <GHC.Types.Char>_R)) -}
+a70f2e8256aeebce63511105486b44d7
+  lower1 :: GHC.Base.String -> [(GHC.Types.Char, GHC.Base.String)]
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: (\ (eta :: GHC.Base.String) ->
+                 case eta of wild {
+                   [] -> GHC.Types.[] @ (GHC.Types.Char, GHC.Base.String)
+                   : x xs
+                   -> case x of wild1 { GHC.Types.C# c2 ->
+                      case GHC.Prim.tagToEnum#
+                             @ GHC.Types.Bool
+                             (GHC.Prim.leChar# 'a'# c2) of wild2 {
+                        GHC.Types.False -> GHC.Types.[] @ (GHC.Types.Char, GHC.Base.String)
+                        GHC.Types.True
+                        -> case GHC.Prim.tagToEnum#
+                                  @ GHC.Types.Bool
+                                  (GHC.Prim.leChar# c2 'z'#) of wild3 {
+                             GHC.Types.False -> GHC.Types.[] @ (GHC.Types.Char, GHC.Base.String)
+                             GHC.Types.True
+                             -> GHC.Types.:
+                                  @ (GHC.Types.Char, GHC.Base.String)
+                                  (wild1, xs)
+                                  (GHC.Types.[] @ (GHC.Types.Char, GHC.Base.String)) } } } }) -}
+36d9cb4303a2001aa1f571e7ca032f93
+  parse :: ParserMonads.Parser a -> ParserMonads.ParserFun a
+  RecSel Left ParserMonads.Parser
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (0, True, True)
+                ParserMonads.parse1
+                  `cast`
+                (forall (a :: <*>_N).
+                 <ParserMonads.Parser a>_R ->_R ParserMonads.N:Parser[0] <a>_R) -}
+55aa57c077c2eb2cef77c70e0d9cae4f
+  parse1 :: ParserMonads.Parser a -> ParserMonads.Parser a
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, True)
+                (\ @ a (ds :: ParserMonads.Parser a) -> ds) -}
+b009ec3e38b32e56cf1a2981fb5de381
+  parseeee :: [GHC.Base.String] -> GHC.Types.IO ()
+  {- Arity: 2, Strictness: <S,1*U><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                ParserMonads.parseeee1
+                  `cast`
+                (<[GHC.Base.String]>_R ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
+c3fdb1ef6d9c1ddf93e50bf09deb0252
+  parseeee1 ::
+    [GHC.Base.String]
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 2, Strictness: <S,1*U><S,U> -}
+d1f100a4a9576eb9e75085cf5c7a946a
+  result :: a -> ParserMonads.Parser a
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,U><L,U>m2,
+     Unfolding: InlineRule (0, True, True)
+                ParserMonads.result1
+                  `cast`
+                (forall (a :: <*>_N).
+                 <a>_R ->_R Sym (ParserMonads.N:Parser[0] <a>_R)) -}
+52c51572e61ec856368b99600c05c543
+  result1 :: a -> GHC.Base.String -> [(a, GHC.Base.String)]
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,U><L,U>m2,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a (v :: a) (inp :: GHC.Base.String) ->
+                 GHC.Types.:
+                   @ (a, GHC.Base.String)
+                   (v, inp)
+                   (GHC.Types.[] @ (a, GHC.Base.String))) -}
+ed247bb441b746f6b1027ef0a24c9685
+  upper :: ParserMonads.Parser GHC.Types.Char
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (0, True, True)
+                ParserMonads.upper1
+                  `cast`
+                (Sym (ParserMonads.N:Parser[0] <GHC.Types.Char>_R)) -}
+3b13dea33de42cdaa90c0ff50f5e8728
+  upper1 :: GHC.Base.String -> [(GHC.Types.Char, GHC.Base.String)]
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: (\ (eta :: GHC.Base.String) ->
+                 case eta of wild {
+                   [] -> GHC.Types.[] @ (GHC.Types.Char, GHC.Base.String)
+                   : x xs
+                   -> case x of wild1 { GHC.Types.C# c2 ->
+                      case GHC.Prim.tagToEnum#
+                             @ GHC.Types.Bool
+                             (GHC.Prim.leChar# 'A'# c2) of wild2 {
+                        GHC.Types.False -> GHC.Types.[] @ (GHC.Types.Char, GHC.Base.String)
+                        GHC.Types.True
+                        -> case GHC.Prim.tagToEnum#
+                                  @ GHC.Types.Bool
+                                  (GHC.Prim.leChar# c2 'Z'#) of wild3 {
+                             GHC.Types.False -> GHC.Types.[] @ (GHC.Types.Char, GHC.Base.String)
+                             GHC.Types.True
+                             -> GHC.Types.:
+                                  @ (GHC.Types.Char, GHC.Base.String)
+                                  (wild1, xs)
+                                  (GHC.Types.[] @ (GHC.Types.Char, GHC.Base.String)) } } } }) -}
+e4ec8dde1d781b728dc5bbb1024946aa
+  useFunction ::
+    (GHC.Types.Char -> GHC.Types.Bool)
+    -> ParserMonads.Parser GHC.Types.Char
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,1*C1(U)><S,1*U>,
+     Unfolding: InlineRule (0, True, True)
+                ParserMonads.useFunction1
+                  `cast`
+                (<GHC.Types.Char -> GHC.Types.Bool>_R
+                 ->_R Sym (ParserMonads.N:Parser[0] <GHC.Types.Char>_R)) -}
+fc495ca92774759f91e6d4be83fd3729
+  useFunction1 ::
+    (GHC.Types.Char -> GHC.Types.Bool)
+    -> GHC.Base.String -> [(GHC.Types.Char, GHC.Base.String)]
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,1*C1(U)><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ (p :: GHC.Types.Char -> GHC.Types.Bool)
+                   (eta :: GHC.Base.String) ->
+                 case eta of wild {
+                   [] -> GHC.Types.[] @ (GHC.Types.Char, GHC.Base.String)
+                   : x xs
+                   -> case p x of wild1 {
+                        GHC.Types.False -> GHC.Types.[] @ (GHC.Types.Char, GHC.Base.String)
+                        GHC.Types.True
+                        -> GHC.Types.:
+                             @ (GHC.Types.Char, GHC.Base.String)
+                             (x, xs)
+                             (GHC.Types.[] @ (GHC.Types.Char, GHC.Base.String)) } }) -}
+13d596fe1b91c12ed88f1170f8c8a2bb
+  zero :: ParserMonads.Parser a
+  {- Arity: 1, HasNoCafRefs, Strictness: <L,A>,
+     Unfolding: InlineRule (0, True, True)
+                ParserMonads.zero1
+                  `cast`
+                (forall (a :: <*>_N). Sym (ParserMonads.N:Parser[0] <a>_R)) -}
+bb44d8606584aa672c324957e5f82546
+  zero1 :: GHC.Base.String -> [(a, GHC.Base.String)]
+  {- Arity: 1, HasNoCafRefs, Strictness: <L,A>,
+     Unfolding: InlineRule (1, True, True)
+                (\ @ a (inp :: GHC.Base.String) ->
+                 GHC.Types.[] @ (a, GHC.Base.String)) -}
+instance [safe] GHC.Base.Applicative [ParserMonads.Parser]
+  = ParserMonads.$fApplicativeParser
+instance [safe] GHC.Base.Functor [ParserMonads.Parser]
+  = ParserMonads.$fFunctorParser
+instance [safe] GHC.Base.Monad [ParserMonads.Parser]
+  = ParserMonads.$fMonadParser
+"SPEC/ParserMonads $dmfail @ Parser" [ALWAYS] forall ($dMonad :: GHC.Base.Monad
+                                                                   ParserMonads.Parser)
+  GHC.Base.$dmfail @ ParserMonads.Parser $dMonad
+  = ParserMonads.$fMonadParser_$s$dmfail
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: safe
+require own pkg trusted: False
+
