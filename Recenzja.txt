@@ -1,0 +1,51 @@
+﻿Recenzja projektu: RocketFlyingGame
+
+https://bitbucket.org/mieszko_makuch/rocketflyinggame
+
+Podzielenie kodu na wiele modułów powoduje, że zrozumienie działania programu jest dużo czytelniejsze.
+W projekcie nie uzyto stacka, ani nie wygenerowano dokumentaji. Wynika to z faktu, że użyta biblioteka nie pozwala na użycie tych narzędzi.
+
+
+Najwazniejsze funkcje znajdują się w 3 modułach:
+Akcje, FunkcjePomocnize oraz Main.
+
+
+Nazwy zmiennych dobrze określają swoje przeznaczenie, treść kodu jest napisana w sposób estetyczny, 
+użyto wcięć, komentarzy  
+
+
+
+Nie znalazłyśmy w projekcie żadnych błędów logicznych,
+natomiast akcje prawy i lewy skręt mają bardzo dużo wspólnego kodu.
+
+
+-- Skręt przy nacisnieciu klawisza
+akcjaLewySkret :: LambdaNode -> TimeInterval -> LambdaNode
+akcjaLewySkret sprite@Sprite{ nodePhysicsBody = Just body } _dt
+  = sprite
+    { nodePhysicsBody
+        = Just body
+               { --bodyVelocity          = Vector 0 0,  -- Prędkość równa 0 (lub Vector 0 0)
+                bodyForcesAndImpulses = [ApplyImpulse (Vector (-silaSkretu) 0) Nothing] --podnosi o x do góry
+               }
+    }
+    
+-- Skręt przy nacisnieciu klawisza
+akcjaPrawySkret :: LambdaNode -> TimeInterval -> LambdaNode
+akcjaPrawySkret sprite@Sprite{ nodePhysicsBody = Just body } _dt
+  = sprite
+    { nodePhysicsBody
+        = Just body
+               { --bodyVelocity          = vectorZero, -- Prędkość równa 0 (lub Vector 0 0)
+                bodyForcesAndImpulses = [ApplyImpulse (Vector (silaSkretu) 0) Nothing] --podnosi o x do góry
+               }
+    }
+
+
+Możnabyło je jakoś uwspólnić, np stworzyć funkcję skręt i wywoływać ją z z parametrem pokazującym który skręt ma się wykonać.
+
+
+
+Dodatkowo moduł Main można było podzielić na 2 moduły.
+
+
