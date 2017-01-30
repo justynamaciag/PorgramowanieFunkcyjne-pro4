@@ -15,7 +15,7 @@ prop_countWords x = countWords x == length (words x)
 test1 = TestCase $ assertEqual "Function countLetters: " 2 (countLetters "ala"  'a')
 test2 = TestCase $ assertEqual "Function countWords: "  4 (countWords "Ala ma kota Ule")
 test3 = TestCase (do inpStr <- readFile "testy.txt"
-                     assertEqual "Function countLines" 4 (countLines inpStr))
+                     assertEqual "Function countLines" 3 (countLines inpStr))
 
 test4 = TestCase (do inpStr <- readFile "testy.txt"
                      assertEqual "Function longerThan80 " 1 (longerThan80 inpStr))

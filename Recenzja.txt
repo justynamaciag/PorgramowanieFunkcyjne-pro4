@@ -1,5 +1,7 @@
+﻿
 ﻿Recenzja projektu: RocketFlyingGame
 
+https://bitbucket.org/mieszko_makuch/rocketflyinggame
 https://bitbucket.org/mieszko_makuch/rocketflyinggame
 
 Podzielenie kodu na wiele modułów powoduje, że zrozumienie działania programu jest dużo czytelniejsze.
@@ -49,3 +51,4 @@ Możnabyło je jakoś uwspólnić, np stworzyć funkcję skręt i wywoływać j�
 Dodatkowo moduł Main można było podzielić na 2 moduły.
 
 
+>>>>>>> c979999433691d91ccd817aed415cdd556d4e0c2
